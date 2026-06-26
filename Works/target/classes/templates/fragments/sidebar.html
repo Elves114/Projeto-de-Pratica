@@ -1,0 +1,17 @@
+<div th:fragment="sidebar" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+
+    <div id="sidebar" class="sidebar">
+        <h3>Gestão</h3>
+
+        <a th:href="@{/produtos}">📦 Produtos</a>
+        <a th:href="@{/vendas}">🛒 Vendas</a>
+        <a th:href="@{/perfil}">👤 Perfil</a>
+        <a th:href="@{/alterar-senha}">🔒 Alterar Senha</a>
+        <a th:href="@{/logout}">🚪 Sair</a>
+    </div>
+
+    <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+
+</div>

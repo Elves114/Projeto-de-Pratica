@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head></head>
+<body>
+
+<!-- O fragmento começa aqui -->
+<div th:fragment="sidebar-lateral">
+
+    <!-- Botão hambúrguer que abre o menu -->
+    <button class="btn-menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
+
+    <div class="layout">
+        <!-- Sidebar com ID para o JavaScript controlar -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+                <h2>Gestão</h2>
+                <!-- Botão para fechar o menu -->
+                <button class="btn-close-sidebar" onclick="toggleSidebar()">✕</button>
+            </div>
+
+            <!-- Links com rotas dinâmicas do Thymeleaf -->
+            <a th:href="@{/produtos}">📦 Produtos</a>
+            <a th:href="@{/vendas}">🛒 Vendas</a>
+            <a th:href="@{/perfil}">👤 Perfil</a>
+            <a th:href="@{/alterar-senha}">🔒 Alterar Senha</a>
+
+            <!-- Formulário de Logout seguro com CSRF integrado do Spring Security -->
+            <form th:action="@{/logout}" method="post">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <button type="submit" class="btn-sair">🚪 Sair</button>
+            </form>
+
+        </aside>
+
+        <!-- Fundo escuro atrás do menu -->
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+    </div>
+
+    <!-- Script injetado junto com o fragmento -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    </script>
+</div>
+
+</body>
+</html>

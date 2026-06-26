@@ -1,0 +1,249 @@
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:Segoe UI, Arial;
+
+}
+
+body{
+
+    display:flex;
+
+    background:#edf1f5;
+
+}
+
+.sidebar{
+
+    width:230px;
+
+    height:100vh;
+
+    background:#1f2937;
+
+    position:fixed;
+
+    color:white;
+
+    padding:30px;
+
+}
+
+.sidebar h2{
+
+    margin-bottom:40px;
+
+}
+
+.sidebar a{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin-bottom:10px;
+
+}
+
+.sidebar a:hover{
+
+    background:#374151;
+
+}
+
+.ativo{
+
+    background:#2563eb;
+
+}
+
+.conteudo{
+
+    margin-left:250px;
+
+    width:100%;
+
+    padding:30px;
+
+}
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.usuario{
+
+    background:white;
+
+    padding:12px 25px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:20px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:25px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+
+}
+
+.card h2{
+
+    margin-bottom:20px;
+
+    color:#1f2937;
+
+}
+
+label{
+
+    display:block;
+
+    margin-top:15px;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+}
+
+button{
+
+    width:100%;
+
+    margin-top:25px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+button:hover{
+
+    background:#1d4ed8;
+
+}
+
+.estatistica{
+
+    text-align:center;
+
+    margin-top:50px;
+
+}
+
+.estatistica h3{
+
+    font-size:55px;
+
+    color:#2563eb;
+
+}
+
+.estatistica p{
+
+    color:#777;
+
+}
+
+.tabela{
+
+    margin-top:30px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+th{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:15px;
+
+}
+
+td{
+
+    padding:15px;
+
+    border-bottom:1px solid #ddd;
+
+    text-align:center;
+
+}
+
+tr:hover{
+
+    background:#f2f5f9;
+
+}

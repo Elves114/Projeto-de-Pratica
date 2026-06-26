@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>WD Works</h2>
+    <a class="ativo" href="/dashboard">Dashboard</a>
+    <a href="/clientes">Clientes</a>
+    <a href="/venda">Vendas</a>
+    <a href="/relatorio">Relatórios</a>
+</div>
+
+<div class="conteudo">
+
+    <header>
+        <h1>Dashboard</h1>
+        <div>Administrador</div> 
+    </header>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Total de Vendas</h2>
+            <p>120</p>
+        </div>
+
+        <div class="card">
+            <h2>Total de Clientes</h2>
+            <p>45</p>
+        </div>
+
+        <div class="card">
+            <h2>Lucro</h2>
+            <p>25.000 MZN</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

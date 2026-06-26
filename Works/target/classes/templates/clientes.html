@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>WD Works</h2>
+    <a href="/dashboard">Dashboard</a>
+    <a class="ativo" href="/clientes">Clientes</a>
+    <a href="/venda">Vendas</a>
+    <a href="/relatorio">Relatórios</a>
+</div>
+
+<div class="conteudo">
+
+    <header>
+        <h1>Clientes</h1>
+    </header>
+
+    <div class="card tabela">
+
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>João</td>
+                <td>joao@email.com</td>
+            </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

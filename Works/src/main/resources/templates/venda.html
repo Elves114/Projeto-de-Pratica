@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Sistema de Vendas</title>
+
+    <link rel="stylesheet" th:href="@{/css/venda.css}">
+
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+        <h2>WD Works</h2>
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/produtos">Produtos</a>
+
+        <a href="/clientes">Clientes</a>
+
+        <a class="ativo" href="/venda">Vendas</a>
+
+        <a href="/relatorio">Relatórios</a>
+
+</div>
+
+<div class="conteudo">
+
+    <header>
+
+        <h1>Registo de Venda</h1>
+
+        <div class="usuario">
+            Administrador
+        </div>
+
+    </header>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h2>Nova Venda</h2>
+
+            <form id="formVenda">
+
+                <label>Cliente ID</label>
+
+                <input
+                        type="number"
+                        id="clienteId"
+                        required>
+
+                <label>Produtos</label>
+
+                <input
+                        type="text"
+                        id="produtoIds"
+                        placeholder="1,2,3"
+                        required>
+
+                <button>
+                    Registar Venda
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Resumo</h2>
+
+            <div class="estatistica">
+
+                <h3 id="totalVendas">0</h3>
+
+                <p>Vendas Registadas</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card tabela">
+
+        <h2>Histórico de Vendas</h2>
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Cliente</th>
+
+                <th>Produtos</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody id="listaVendas">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script>
+
+    async function carregarVendas(){
+
+        const resposta = await fetch("/venda");
+
+        const vendas = await resposta.json();
+
+        let tabela = document.getElementById("listaVendas");
+
+        tabela.innerHTML="";
+
+        document.getElementById("totalVendas").innerHTML=vendas.length;
+
+        vendas.forEach(v=>{
+
+            tabela.innerHTML+=`
+
+            <tr>
+
+                <td>${v.id}</td>
+
+                <td>${v.clienteId}</td>
+
+                <td>${v.produtoIds}</td>
+
+            </tr>
+
+        `;
+
+        });
+
+    }
+
+    carregarVendas();
+
+    document.getElementById("formVenda").addEventListener("submit",async function(e){
+
+        e.preventDefault();
+
+        let cliente=document.getElementById("clienteId").value;
+
+        let produtos=document.getElementById("produtoIds").value
+            .split(",")
+            .map(p=>Number(p.trim()));
+
+        const venda={
+
+            clienteId:Number(cliente),
+
+            produtoIds:produtos
+
+        };
+
+        let resposta=await fetch("/venda",{
+
+            method:"POST",
+
+            headers:{
+
+                "Content-Type":"application/json"
+
+            },
+
+            body:JSON.stringify(venda)
+
+        });
+
+        if(resposta.ok){
+
+            alert("Venda registada com sucesso.");
+
+            this.reset();
+
+            carregarVendas();
+
+        }else{
+
+            alert("Erro ao registar.");
+
+        }
+
+    });
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Alterar Senha</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="auth-page">
+
+    <div class="auth-card">
+
+        <h1>Alterar Senha</h1>
+
+        <form th:action="@{/alterar-senha}"
+              method="post">
+
+            <div class="form-group">
+                <label>Senha Atual</label>
+                <input type="password"
+                       name="senhaAtual"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Nova Senha</label>
+                <input type="password"
+                       name="novaSenha"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Confirmar Nova Senha</label>
+                <input type="password"
+                       name="confirmarSenha"
+                       required>
+            </div>
+
+            <button type="submit"
+                    class="btn-login">
+                Alterar Senha
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

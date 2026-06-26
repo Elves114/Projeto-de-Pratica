@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Perfil</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="perfil-card">
+
+        <div class="perfil-header">
+
+            <div class="avatar">
+                <span th:text="${usuario.nome != null ? usuario.nome.substring(0,1) : 'U'}">
+
+                </span>
+            </div>
+
+            <h1 th:text="${usuario.nome}">Nome</h1>
+
+            <p th:text="${usuario.email}">email</p>
+
+        </div>
+
+        <div class="perfil-info">
+
+            <div class="perfil-item">
+                <span class="label">ID</span>
+                <span th:text="${usuario.id}"></span>
+            </div>
+
+            <div class="perfil-item">
+                <span class="label">Função</span>
+                <span th:text="${usuario.role}"></span>
+            </div>
+
+            <div class="perfil-item">
+                <span class="label">Estado</span>
+                <span>Ativa</span>
+            </div>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <h3 th:text="${totalProdutos}">0</h3>
+                <p>Produtos</p>
+            </div>
+
+        </div>
+
+        <div class="perfil-acoes">
+
+            <a th:href="@{/alterar-senha}" class="btn-primary">
+                Alterar Senha
+            </a>
+            <br>
+            <br>
+
+            <a th:href="@{/produtos}" class="btn-secondary">
+                Voltar
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
